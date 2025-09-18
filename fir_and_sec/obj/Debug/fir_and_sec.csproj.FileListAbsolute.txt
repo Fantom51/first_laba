@@ -1,0 +1,8 @@
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\bin\Debug\fir_and_sec.exe.config
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\bin\Debug\fir_and_sec.exe
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\bin\Debug\fir_and_sec.pdb
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\obj\Debug\fir_and_sec.csproj.AssemblyReference.cache
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\obj\Debug\fir_and_sec.csproj.CoreCompileInputs.cache
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\obj\Debug\fir_and_sec.exe
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\obj\Debug\fir_and_sec.pdb
+C:\Users\s0195940\source\repos\fir_and_sec\fir_and_sec\obj\Debug\fir_and_sec.exe.config
