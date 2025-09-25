@@ -3,81 +3,99 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace fir_and_sec
 {
     internal class Program
     {
-        class Rayon
+        public abstract class AdminUnit
         {
-            public int Population { get; set; }
-            public Rayon(int population)
+            public string name;
+            public int population;
+            public double area;
+            public AdminUnit(string Name, int Population, double Area)
             {
-                Population = population;
+                name = Name;
+                population = Population;
+                area = Area;
             }
-            public virtual  void Display()
+            public virtual void DisplayInfo()
             {
-                Console.WriteLine("Население района: " + Population);
+                Console.WriteLine("Название: " + name);
+                Console.WriteLine("Население: " + population);
+                Console.WriteLine("Площадь: " + area);
                 Console.WriteLine(" ");
-                
+            }
+        }
+        class Rayon : AdminUnit
+        {
+            public Rayon(string Name, int Population, double Area):
+                base(Name, Population, Area)
+            {
+            }
+            public override void DisplayInfo()
+            {
+                Console.WriteLine("Район:");
+                base.DisplayInfo();
             }
 
         }
-        class Poselok : Rayon
+        class Poselok : AdminUnit
         {
-            public string Name { get; set; }
-            public Poselok(int population, string name) :base(population)
+            public string type;
+            public Poselok(string Name, int Population, double Area, string Type) : base(Name, Population, Area)
             {
-                Name = name;
+                type = Type;
             }
-            public override void Display()
+            
+            public override void DisplayInfo()
             {
-                Console.WriteLine("Население посёлка: " + Population);
-                Console.WriteLine("Название посёлка: " + Name);
-                Console.WriteLine(" ");
+                Console.WriteLine("Посёлок:");
+                Console.WriteLine("Тип посёлка: " + type);
+                base.DisplayInfo();
             }
         }
-        class City : Poselok
+        class City : AdminUnit
         {
-            public double Area { get; set; }
-            public City(int population, string name, double area) : base(population, name)
+            public string status;
+            public City(string Name, int Population, double Area, string Status) : base(Name, Population, Area)
             {
-                Area = area;
+                status = Status;
             }
-            public override void Display()
+            public override void DisplayInfo()
             {
-                Console.WriteLine("Население города: " + Population);
-                Console.WriteLine("Название города: " + Name);
-                Console.WriteLine("Площадь города: " + Area);
-                Console.WriteLine(" ");
+                Console.WriteLine("Город:");
+                Console.WriteLine("Статус: " + status);
+                base.DisplayInfo();
+
+
             }
         }
-        class Oblast : City
+        class Oblast : AdminUnit
         {
-            public string AdminCenter { set; get; }
-            public Oblast(int population, string name, double area, string admincenter) : base(population, name, area)
+            public string adminCenter;
+            public Oblast(string Name, int Population, double Area, string Admincenter) : base(Name, Population, Area)
             {
-                AdminCenter = admincenter;
+                adminCenter = Admincenter;
             }
-            public override void Display()
+            public override void DisplayInfo()
             {
-                Console.WriteLine("Население области: " + Population);
-                Console.WriteLine("Название области: " + Name);
-                Console.WriteLine("Площадь области: " + Area);
-                Console.WriteLine("Административный центр области: " + AdminCenter);
-                Console.WriteLine(" ");
+                Console.WriteLine("Область:");
+                Console.WriteLine("Административный центр области: " + adminCenter);
+                base.DisplayInfo();
             }
         }
         static void Main(string[] args)
         {
-            Rayon ob1 = new Rayon(10000);
-            ob1.Display();
-            Rayon ob2 = new Poselok(100000,"Egoryevsk");
-            ob2.Display();
-            Rayon ob3 = new City(500000, "Egorsk", 5000.50);
-            ob3.Display();
-            Rayon ob4 = new Oblast(1000000, "Egoryevskaya oblast", 100000, "Egorsk");
-            ob4.Display();
+            Poselok un1 = new Poselok("Egoryevsk", 1000, 1150.5, "Дачный");
+            Rayon un2 = new Rayon("Egoryevskiy", 10000, 4000.12);
+            City un3 = new City("Egortown", 3000000, 10000, "Административный центр");
+            Oblast un4 = new Oblast("Egoryevskaya", 8000000, 5000000, "Egortown");
+            un1.DisplayInfo();
+            un2.DisplayInfo();
+            un3.DisplayInfo();
+            un4.DisplayInfo();
 
         }
     }
